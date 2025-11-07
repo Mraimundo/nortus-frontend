@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { env } from '@/src/env';
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -10,6 +11,8 @@ interface AuthState {
   checkAuth: () => void;
 }
 
+const BASE_URL = env.NEXT_PUBLIC_BASE_URL;
+
 export const useAuthStore = create<AuthState>((set, get) => ({
   isAuthenticated: false,
   user: null,
@@ -19,9 +22,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   login: async (email, password) => {
     set({ loading: true, error: null });
     try {
-      const response = await fetch(
-        'https://loomi.s3.us-east-1.amazonaws.com/mock-api-json/v2/login.json',
-      );
+      const response = await fetch(`${BASE_URL}/login.json`);
       const data = await response.json();
 
       await new Promise((resolve) => setTimeout(resolve, 1100));
