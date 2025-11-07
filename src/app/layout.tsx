@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Head from 'next/head';
 import localFont from 'next/font/local';
+import { Toaster } from 'sonner';
+
 import './globals.css';
 
 const localPoppins = localFont({
@@ -78,17 +80,18 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://nortus.ai'),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="google-site-verification" content="" />
       </Head>
       <body className={`${localPoppins.className} antialiased`}>
         {children}
+        <Toaster richColors position="top-right" />
       </body>
     </html>
   );
