@@ -90,8 +90,10 @@ export default async function RootLayout({
         <meta name="google-site-verification" content="" />
       </Head>
       <body className={`${localPoppins.className} antialiased`}>
-        {children}
-        <Toaster richColors position="top-right" />
+        <section className="max-w-7xl m-auto">
+          <main className="h-screen">{children}</main>
+          <Toaster richColors position="top-right" />
+        </section>
       </body>
     </html>
   );
