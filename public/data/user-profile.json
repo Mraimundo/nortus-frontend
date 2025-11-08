@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "data": {
+    "id": "1",
+    "username": "ana.carolina",
+    "name": "Ana Carolina Silva",
+    "email": "ana.carolina@nortus.com.br",
+    "phone": "+55 (11) 98765-4321",
+    "role": "Gerente Comercial",
+    "department": "Vendas & Marketing",
+    "company": "Nortus Seguros",
+    "initials": "AC",
+    "startDate": "15/03/2022",
+    "accessLevel": "Administrador",
+    "avatar": null,
+    "statistics": {
+      "monthlySales": 24,
+      "revenue": 42000,
+      "completionRate": 92,
+      "clients": 15
+    },
+    "performance": {
+      "targetAchievement": 115,
+      "teamRanking": 2,
+      "customerSatisfaction": 4.8
+    }
+  },
+  "message": "Perfil carregado com sucesso"
+}
