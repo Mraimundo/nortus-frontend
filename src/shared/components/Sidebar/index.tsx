@@ -37,7 +37,7 @@ import { useState } from 'react';
 
 const icons: Record<string, React.ComponentType<any>> = {
   '/dashboard': ChartLine,
-  '/ticket-management': TicketSlash,
+  '/tickets': TicketSlash,
   '/chat-assistant': MessageSquare,
   '/plan-simulator': Calculator,
 };
