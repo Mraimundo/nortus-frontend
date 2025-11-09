@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "description": "Entre com suas credenciais para acessar a sua conta.",
+    "userPlaceholder": "Usuário*",
+    "placeholderPassword": "Senha*",
+    "rememberUsername": "Lembrar meu usuário",
+    "forgotPassword": "Esqueci minha senha",
+    "sendButton": "Entrar"
+  }
+}

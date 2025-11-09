@@ -1,9 +1,10 @@
 'use client';
-
+import { useTranslations } from 'next-intl';
 import { IllustrationSection } from '../IllustrationSection';
 import { LoginForm } from '../LoginForm';
 
 export function LoginFormSection() {
+  const t = useTranslations('auth');
   return (
     <main className="min-h-screen w-full bg-[#0B0D1B] flex justify-center px-6 md:px-12 lg:px-16">
       <div className="w-full max-w-[1440px] grid md:grid-cols-2 gap-10 py-12 items-start">
@@ -14,9 +15,7 @@ export function LoginFormSection() {
 
           <div>
             <h2 className="text-2xl font-semibold mb-3 text-white">Login</h2>
-            <p className="text-sm mb-10 text-gray-300">
-              Entre com suas credenciais para acessar a sua conta.
-            </p>
+            <p className="text-sm mb-10 text-gray-300">{t('description')}</p>
 
             <LoginForm />
           </div>
