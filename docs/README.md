@@ -13,3 +13,9 @@ Conteúdo:
 - Convenções de commits e versionamento
 
 Para uma visão rápida do projeto, consulte docs/overview.md.
+
+# Deploy da Aplicação :dash:
+
+> <a href="https://nortus-app-zeta.vercel.app/en-US/auth/login" target='_blank'>Link do deploy da aplicação<a/>
+
+<hr/>
