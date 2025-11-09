@@ -5,7 +5,7 @@ import { routing } from './i18n/routing';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const response = intlMiddleware(req);
 
   const token = req.cookies.get('auth_token')?.value;

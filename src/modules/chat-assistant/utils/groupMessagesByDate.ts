@@ -9,22 +9,17 @@ export function groupMessagesByDate(
 
   const result: MessageWithDateLabel[] = [];
   const today = new Date();
-  const yesterday = new Date();
+  const yesterday = new Date(today);
   yesterday.setDate(today.getDate() - 1);
 
   let lastDate = '';
 
   for (const msg of messages) {
-    // Supomos que `msg.time` é HH:mm, mas precisamos de data completa
-    // Como seu mock não tem data, vamos simular com base no índice ou adicionar no store
-    // Para este exemplo, vamos assumir que todas as mensagens são de HOJE (como no layout)
-    // Mas deixamos a lógica pronta para datas reais.
-
-    const msgDate = new Date(); // ← substitua com `msg.timestamp` no futuro
+    const msgDate = msg.time ? new Date(msg.time) : new Date();
     const dateStr = msgDate.toDateString();
 
     if (dateStr !== lastDate) {
-      let label = '';
+      let label: string;
 
       if (dateStr === today.toDateString()) {
         label = 'Hoje';
@@ -45,12 +40,13 @@ export function groupMessagesByDate(
 
       result.push({
         id: `date-${dateStr}`,
-        sender: 'system',
+        sender: 'system' as ChatMessage['sender'],
         name: 'system',
         text: '',
-        time: '',
+        time: msg.time || '',
         dateLabel: label,
       });
+
       lastDate = dateStr;
     }
 

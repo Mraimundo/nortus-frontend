@@ -25,16 +25,10 @@ import {
 import { Badge } from '@/src/shared/components/ui/badge';
 import { useChatStore } from '@/src/modules/chat-assistant/store/useChatStore';
 import { ChatForm } from '../ChatForm.tsx';
-import { groupMessagesByDate } from '@/src/modules/chat-assistant/utils/groupMessagesByDate.ts';
-
+import { groupMessagesByDate } from '@/src/modules/chat-assistant/utils/groupMessagesByDate';
 export function ChatSection() {
-  const {
-    messages,
-    client,
-    iaSuggestion,
-    minimizeIASuggestion,
-    toggleMinimizeIASuggestion,
-  } = useChatStore();
+  const { messages, client, iaSuggestion, toggleMinimizeIASuggestion } =
+    useChatStore();
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {

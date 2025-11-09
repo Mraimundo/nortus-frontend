@@ -2,7 +2,6 @@ import { useState, useMemo } from 'react';
 import { mapMarkers } from '../../config/dashboardData';
 import { MapMarker } from '../../types/dashboard';
 import { CustomerMapCard } from '../CustomerMapCard';
-import { env } from '@/src/env';
 
 interface CustomerMapProps {
   markers?: MapMarker[];
@@ -12,7 +11,7 @@ export function CustomerMap({ markers = mapMarkers }: CustomerMapProps) {
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [selectedType, setSelectedType] = useState<string>('all');
 
-  const googleMapsApiKey = env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || '';
 
   const filteredMarkers = useMemo(() => {
     return markers.filter((marker) => {
