@@ -1,34 +1,44 @@
 import type { Metadata } from 'next';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
+
 import Head from 'next/head';
 import localFont from 'next/font/local';
 import { Toaster } from 'sonner';
 
-import './globals.css';
+import { notFound } from 'next/navigation';
+import { routing } from '@/src/i18n/routing';
+
+import '../globals.css';
+
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+};
 
 const localPoppins = localFont({
   src: [
     {
-      path: './_fonts/Poppins/Poppins-Medium.ttf',
+      path: '../_fonts/Poppins/Poppins-Medium.ttf',
       weight: '500',
       style: 'normal',
     },
     {
-      path: './_fonts/Poppins/Poppins-Regular.ttf',
+      path: '../_fonts/Poppins/Poppins-Regular.ttf',
       weight: '400',
       style: 'normal',
     },
     {
-      path: './_fonts/Poppins/Poppins-SemiBold.ttf',
+      path: '../_fonts/Poppins/Poppins-SemiBold.ttf',
       weight: '600',
       style: 'normal',
     },
     {
-      path: './_fonts/Poppins/Poppins-Bold.ttf',
+      path: '../_fonts/Poppins/Poppins-Bold.ttf',
       weight: '700',
       style: 'normal',
     },
     {
-      path: './_fonts/Poppins/Poppins-ExtraBold.ttf',
+      path: '../_fonts/Poppins/Poppins-ExtraBold.ttf',
       weight: '800',
       style: 'normal',
     },
@@ -80,9 +90,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://nortus.ai'),
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params;
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
     <html>
       <Head>
@@ -91,7 +105,9 @@ export default async function RootLayout({
       </Head>
       <body className={`${localPoppins.className} antialiased`}>
         <section className="max-w-7xl m-auto">
-          <main className="h-screen">{children}</main>
+          <main className="h-screen">
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </main>
           <Toaster richColors position="top-right" />
         </section>
       </body>

@@ -1,4 +1,7 @@
-import { useState } from 'react';
+'use client';
+
+import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
 import {
   Select,
   SelectContent,
@@ -30,27 +33,28 @@ const locales: { value: Locale; label: string; flag: React.ReactNode }[] = [
   },
 ];
 
-export function LocaleSelect({
-  initial,
-  onChange,
-}: {
-  initial?: Locale;
-  onChange?: (locale: Locale) => void;
-}) {
-  const [value, setValue] = useState<Locale>(initial ?? 'pt-BR');
+export function LocaleSelect() {
+  const locale = useLocale() as Locale;
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const switchLocale = (newLocale: Locale) => {
+    if (newLocale === locale) return;
+
+    const pathWithoutLocale = pathname.replace(/^\/(pt-BR|en-US)/, '');
+    router.push(`/${newLocale}${pathWithoutLocale}`);
+  };
 
   return (
     <Select
-      value={value}
-      onValueChange={(v) => {
-        const locale = v as Locale;
-        setValue(locale);
-        onChange?.(locale);
-        // integrar com i18n aqui, ex: i18n.changeLanguage(locale)
-      }}
+      value={locale}
+      onValueChange={(newValue) => switchLocale(newValue as Locale)}
     >
       <SelectTrigger className="!flex !items-center bg-[#13111F] !px-5 !py-3 rounded-3xl !gap-2 border-0 ring-0 focus:ring-0 focus:ring-offset-0 outline-none !h-auto !w-auto !min-w-fit shadow-none">
-        <SelectValue />
+        <SelectValue>
+          {locales.find((l) => l.value === locale)?.flag}
+          {locales.find((l) => l.value === locale)?.label}
+        </SelectValue>
       </SelectTrigger>
 
       <SelectContent>

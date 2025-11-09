@@ -1,7 +1,13 @@
+import createIntlMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { routing } from './i18n/routing';
+
+const intlMiddleware = createIntlMiddleware(routing);
 
 export function middleware(req: NextRequest) {
+  const response = intlMiddleware(req);
+
   const token = req.cookies.get('auth_token')?.value;
   const { pathname } = req.nextUrl;
 
@@ -20,9 +26,14 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL('/dashboard', req.url));
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
-  matcher: ['/', '/dashboard/:path*', '/auth/login'],
+  matcher: [
+    '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
+    '/',
+    '/dashboard/:path*',
+    '/auth/login',
+  ],
 };
