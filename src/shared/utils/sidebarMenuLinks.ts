@@ -4,7 +4,7 @@ export const sidebarMenuLinks = [
     name: 'Dashboard',
   },
   {
-    link: '/ticket-management',
+    link: '/tickets',
     name: 'Gestão de Tickets',
   },
   {
