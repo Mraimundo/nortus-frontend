@@ -17,23 +17,7 @@ import { CustomerMap } from '../CustomerMap';
 import { KpiChartSection } from '../KPIChartSection';
 
 export function DashboardSection() {
-  const [isLoading, setIsLoading] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 1500);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log('Dados atualizados');
-    }, 30000);
-    return () => clearInterval(interval);
-  }, []);
-
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
 
   return (
     <div className="min-h-screen text-white">
