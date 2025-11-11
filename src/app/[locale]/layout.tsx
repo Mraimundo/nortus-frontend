@@ -99,10 +99,10 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html>
-      <Head>
+      <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="google-site-verification" content="" />
-      </Head>
+      </head>
       <body className={`${localPoppins.className} antialiased`}>
         <section className="max-w-7xl m-auto">
           <main className="h-screen">
