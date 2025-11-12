@@ -1,12 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   pieChartOptions,
   pieChartSeries,
 } from '../../config/chartDashboardConfig';
 import { kpiData, segments, mapMarkers } from '../../config/dashboardData';
-import { LoadingSpinner } from '@/src/shared/components/LoadingSpinner';
 import { MobileHeader } from '@/src/shared/components/MobileHeader';
 import { MobileMenu } from '@/src/shared/components/MobileMenu';
 import { Sidebar } from '@/src/shared/components/Sidebar';
