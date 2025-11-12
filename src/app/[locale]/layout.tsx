@@ -98,7 +98,7 @@ export default async function RootLayout({ children, params }: Props) {
   }
 
   return (
-    <html>
+    <html lang={locale}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="google-site-verification" content="" />
