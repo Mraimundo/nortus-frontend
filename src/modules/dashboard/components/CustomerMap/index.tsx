@@ -48,7 +48,6 @@ export function CustomerMap({ markers = mapMarkers }: CustomerMapProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
-      {/* Header */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
         <h2 className="text-lg lg:text-xl font-semibold text-slate-100 leading-tight">
           Mapa de clientes por região

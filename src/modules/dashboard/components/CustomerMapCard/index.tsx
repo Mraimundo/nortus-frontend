@@ -50,7 +50,7 @@ export function CustomerMapCard({ markers }: CustomerMapCardProps) {
   const prepared = useMemo(() => markers || [], [markers]);
 
   return (
-    <div className="relative h-60 lg:h-80 bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700/30">
+    <div className="relative h-full lg:h-80 bg-slate-900/50 rounded-xl overflow-hidden border border-slate-700/30">
       <MapContainer
         center={defaultCenter}
         zoom={defaultZoom}
