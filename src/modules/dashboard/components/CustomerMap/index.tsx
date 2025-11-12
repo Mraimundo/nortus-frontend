@@ -118,7 +118,6 @@ export function CustomerMap({ markers = mapMarkers }: CustomerMapProps) {
           </div>
         </motion.div>
 
-        {/* Clientes */}
         <motion.div
           className="flex items-center gap-2 bg-slate-800/70 border border-slate-700/60 rounded-lg px-3 py-2 shadow-md hover:bg-slate-800/90 transition-all duration-300"
           whileHover={{ scale: 1.03 }}
