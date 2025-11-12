@@ -35,14 +35,6 @@ export const segments: Segment[] = [
   { name: 'Profissional', value: 7, color: '#0782a7' },
 ];
 
-// export const mapMarkers: MapMarker[] = [
-//   { lat: -23.5505, lng: -46.6333, type: 'blue', count: 3 },
-//   { lat: -23.5, lng: -46.7, type: 'orange', count: 2 },
-//   { lat: -23.6, lng: -46.6, type: 'green', count: 1 },
-//   { lat: -23.55, lng: -46.55, type: 'blue', count: 4 },
-//   { lat: -23.52, lng: -46.68, type: 'orange', count: 3 },
-// ];
-
 export const mapMarkers: MapMarker[] = [
   {
     id: 1,
