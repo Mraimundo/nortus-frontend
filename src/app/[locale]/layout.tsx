@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 
-import Head from 'next/head';
 import localFont from 'next/font/local';
 import { Toaster } from 'sonner';
 

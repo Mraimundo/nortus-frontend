@@ -30,10 +30,5 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!api|trpc|_next|_vercel|.*\\..*).*)',
-    '/',
-    '/dashboard/:path*',
-    '/auth/login',
-  ],
+  matcher: ['/((?!api|_next|.*\\..*).*)'],
 };

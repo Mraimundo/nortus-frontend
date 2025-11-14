@@ -31,60 +31,6 @@ button {
   cursor: pointer;
 }
 
-.chat-message {
-  max-width: 70%;
-  padding: 12px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-}
-
-.chat-message.client {
-  background-color: #2563eb;
-  color: white;
-  align-self: flex-end;
-}
-
-.chat-message.agent {
-  background-color: #1e293b;
-  color: white;
-  align-self: flex-start;
-}
-
-.chat-message.ai {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  color: white;
-  align-self: flex-start;
-}
-
-.chat-actions {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.chat-input {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background-color: #1e293b;
-  border-radius: 9999px;
-  padding: 8px 16px;
-}
-
-.chat-input input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  outline: none;
-  color: white;
-  font-size: 14px;
-}
-
-.chat-input button {
-  color: #3b82f6;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -98,4 +44,97 @@ button {
 
 .fade-in {
   animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  }
+}
+
+@keyframes floatingDot1 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(200px, -400px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatingDot2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-250px, -500px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatingDot3 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(150px, -300px);
+    opacity: 0;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+.animate-floatingDot1 {
+  animation: floatingDot1 9s linear infinite;
+  top: 80%;
+  left: 20%;
+}
+
+.animate-floatingDot2 {
+  animation: floatingDot2 11s linear infinite;
+  top: 60%;
+  left: 70%;
+}
+
+.animate-floatingDot3 {
+  animation: floatingDot3 13s linear infinite;
+  top: 90%;
+  left: 45%;
+}
+
+.animate-fadeInDelay {
+  animation: fadeInUp 1.4s ease forwards;
 }
