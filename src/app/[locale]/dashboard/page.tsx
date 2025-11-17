@@ -1,14 +1,10 @@
-import { Suspense } from 'react';
+import { DashboardContent } from '@/src/modules/dashboard/components/DashboardContent';
+import { DashboardLayout } from '@/src/modules/dashboard/components/DashboardLayout';
 
-import { DashboardSection } from '@/src/modules/dashboard/components/DashboardSection';
-import { LoadingSpinner } from '@/src/shared/components/LoadingSpinner';
-
-export default async function Dashboard() {
+export default function DashboardPage() {
   return (
-    <div>
-      <Suspense fallback={<LoadingSpinner />}>
-        <DashboardSection />;
-      </Suspense>
-    </div>
+    <DashboardLayout>
+      <DashboardContent />
+    </DashboardLayout>
   );
 }

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import LineChart from '../LineChart';
 import { lineChartOptions } from '../../config/chartDashboardConfig';
